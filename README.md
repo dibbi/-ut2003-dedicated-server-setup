@@ -173,6 +173,11 @@ Du kannst gerne Issues erstellen oder Pull Requests senden, z. B. für:
 
 ---
 
+## 🔧 Vollständige Linux-Installationsanleitung
+
+👉 Siehe [server-install.md](server-install.md) für eine detaillierte Schritt-für-Schritt-Anleitung zum Einrichten des UT2003 Dedicated Servers unter Linux.
+
+
 ---
 
 ## ❓ Hilfe & FAQ
