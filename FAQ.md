@@ -18,8 +18,10 @@ Hier findest du Antworten auf häufige Fragen zur Einrichtung und Nutzung des Un
 - Öffne `scripts/start-ut2003.sh` und passe ggf. den Pfad zu `ucc-bin` an:
 
 
-/voller/pfad/zu/ucc-bin server …
 
+```
+/voller/pfad/zu/ucc-bin server …
+```
 
 ---
 
@@ -29,8 +31,8 @@ Hier findest du Antworten auf häufige Fragen zur Einrichtung und Nutzung des Un
 - Gehe zum Abschnitt `[XInterface.MapListDeathMatch]`.
 - Füge oder ändere die Einträge dort, z. B.:
 
-- `Maps=DM-Antalus`
-- `Maps=DM-Compressed`
+  - `Maps=DM-Antalus`
+  - `Maps=DM-Compressed`
 
 ---
 
@@ -38,7 +40,12 @@ Hier findest du Antworten auf häufige Fragen zur Einrichtung und Nutzung des Un
 
 - Starte den Server und prüfe, ob Port 7777 (UDP) offen ist:
 
+
+```
+
 sudo ufw allow 7777/udp
+
+```
 
 ---
 
@@ -58,9 +65,13 @@ sudo ufw allow 7777/udp
 
 - Ja. Aktiviere den Webserver in der INI:
 
-UWeb.WebServer
+
+
+```
+[UWeb.WebServer]
 bEnabled=True 
 ListenPort=8080
+```
 
 
 - Danach kannst du per Browser (z. B. http://127.0.0.1:8080) zugreifen – evtl. nur im lokalen Netz.
