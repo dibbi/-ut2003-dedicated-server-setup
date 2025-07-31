@@ -60,65 +60,117 @@ Skripte, Anleitungen und Links für Unreal Tournament 2003 Dedicated Server
 
 ---
 
-## 🚀 Installation und Server-Setup
+# 🕹️ Unreal Tournament 2003 – Dedicated Server Setup (Linux)
 
-### 1. Voraussetzungen & Vorbereitung
+> ⚠️ Dieses Repository bezieht sich ausschließlich auf die **Linux-Version** des Unreal Tournament 2003 Dedicated Servers.
 
-- **Betriebssystem**: Windows oder Linux (kompatibel mit den Server-Dateien)
-- **Netzwerk**: Stelle sicher, dass die Ports 7777 (Game), 7787 (Query) und 28902 (Masterserver) offen sind, falls du öffentlich hosten willst.
-- **Benötigte Dateien**: Siehe oben im Abschnitt „Wichtige Downloads“
-
-### 2. Server-Dateien herunterladen und entpacken
-
-- Lade dir die passende Server-Version herunter (Windows/Linux).
-- Entpacke die Dateien in ein leeres Verzeichnis deiner Wahl.
-
-### 3. Grundkonfiguration
-
-- Öffne die Datei `UT2003.ini` im entpackten Server-Ordner mit einem Texteditor.
-- Passe Einstellungen wie Servername, Passwort, Anzahl der Spieler usw. nach deinen Wünschen an.
-- Beispiel:
-
-Engine.GameReplicationInfo 
-ServerName=Mein UT2003 Server 
-AdminName=Admin 
-AdminPassword=DeinSicheresPasswort
-
-
-### 4. Server starten
-
-**Unter Windows:**
-- Führe `ucc.exe` über die Eingabeaufforderung oder Doppelklick aus, z. B.:
-
-ucc.exe server DM-Antalus?
-game=XGame.xDeathMatch ini=UT2003.ini
-
-
-**Unter Linux:**
-- Terminal öffnen, zum Server-Verzeichnis wechseln und starten:
-
-./ucc-bin server DM-Antalus?
-game=XGame.xDeathMatch ini=UT2003.ini
-
-
-### 5. Portfreigabe & Firewall
-
-- Stelle sicher, dass deine oben genannten Ports in der Firewall freigeschaltet sind.
-- Bei Problemen mit der Verbindung im LAN/Internet: Router-Einstellungen kontrollieren.
-
-### 6. Testlauf und Fehlerbehebung
-
-- Versuche, dich über das UT2003-Spiel mit dem Server zu verbinden.
-- Überprüfe bei Problemen die Log-Dateien (`server.log`) und kontrolliere Serverkonsole/Meldungen.
-- Häufige Fehler und ihre Lösung findest du im Netz oder unter deinem FAQ-/Troubleshooting-Abschnitt.
+Dieses Projekt bietet ein vollständiges, kommentiertes Setup für einen UT2003-Server unter Linux. Es enthält ein Startskript, eine Beispiel-Konfigurationsdatei und eine einfache Anleitung für Einrichtung und Betrieb. Ziel ist es, dir und unterstützenden Tools wie Claude den Einrichtungsprozess möglichst leicht zu machen.
 
 ---
 
-**Tipp:**  
-Für ausführlichere Anleitung, Spezial-Setups (Mods, Maps, Autostart), siehe die empfohlenen Links oder erweitere diese Anleitung nach eigenen Erfahrungen!
+## 📦 Voraussetzungen
+
+- UT2003 Dedicated Server unter Linux (bereits entpackt bzw. installiert)
+- Shellzugriff (z. B. Bash)
+- Ausführungsrechte für `ucc-bin` sowie das Startskript
+- Standardverzeichnisstruktur: `System/`, `Maps/`, `Textures/` usw.
+
+---
+
+## 🚀 Installation
+
+1. Dieses Repository klonen oder herunterladen:
+
+git clone https://github.com/dein-benutzername/ut2003-server cd ut2003-server
 
 
 
+2. Lege dein UT2003-Serververzeichnis an oder navigiere hinein. Kopiere die Inhalte aus deiner originalen UT2003-Installation hinein (besonders den `System/`-Ordner mit `ucc-bin` und `.ini`-Dateien).
+
+3. Stelle sicher, dass `ucc-bin` im selben Verzeichnis liegt, aus dem du später startest, und ausführbar ist:
+
+chmod +x ucc-bin
 
 
+---
 
+## ▶️ Server starten
+
+Das Skript findest du unter `scripts/start_server.sh`. Es startet einen einfachen Deathmatch-Server mit Standardmap.
+
+### Start:
+
+chmod +x scripts/start_server.sh ./scripts/start_server.sh
+
+
+Das Skript ruft `ucc-bin server` mit einer Testmap und der Konfigurationsdatei `UT2003.ini` auf. Du kannst es jederzeit im Texteditor anpassen.
+
+---
+
+## ⚙️ Server-Konfiguration
+
+Im Repository findest du eine komplette Beispielkonfiguration mit Kommentaren:
+
+🔧 `config/UT2003.example.ini`
+
+### Verwendung:
+
+1. Kopiere die Datei in dein Serververzeichnis:
+
+cp config/UT2003.example.ini UT2003.ini
+
+
+2. Bearbeite die Datei:
+
+nano UT2003.ini
+
+
+3. Passe folgende Einträge an:
+- `ServerName` → Anzeigename des Servers
+- `AdminPassword` → fürs Server-Management im Spiel
+- `GamePassword` → optional für privaten Serverzugang
+- `MaxPlayers` → Spieleranzahl
+- `Maps=` in der Mapliste → Rotation festlegen
+- `Port=` und `WebAdmin-Port=` → Netzwerk/Firewall beachten
+
+Die Datei enthält ausführliche Kommentare zur Orientierung. Sie sorgt dafür, dass Claude und andere Tools gezielt helfen können.
+
+---
+
+## 📁 Projektstruktur
+
+├── README.md                     # Diese Anleitung ├── scripts/ │   └── start_server.sh           # Startskript für Linux ├── config/ │   └── UT2003.example.ini        # Beispiel-Konfigurationsdatei mit Kommentaren
+
+
+---
+
+## 🧠 Unterstützt durch Claude
+
+Die klare Struktur dieses Repositories erlaubt unterstützenden KI-Modellen wie Claude:
+
+- Hilfestellung beim Konfigurieren des Servers
+- Erklärung einzelner Einstellungen aus der `.ini`-Datei
+- Analyse beim Troubleshooting (Ports, Map-Rotation etc.)
+- Anpassung des Startskripts bei Bedarf
+
+---
+
+## ✅ Noch geplant
+
+- Optional: FAQ-Datei mit gängigen Problemen und Tipps
+- Beispiele für weitere Spielmodi (CTF, Invasion, etc.)
+- Beispielskripte für manuelles Stoppen oder Neustarten
+
+---
+
+## 💬 Mitmachen
+
+Du kannst gerne Issues erstellen oder Pull Requests senden, z. B. für:
+
+- zusätzliche Maps oder Mutatoren in der Rotation
+- Verbesserungen am Startskript
+- Erweiterung der Beispielkonfig
+
+---
+
+**Have fun and frag on!**
