@@ -10,15 +10,19 @@ Diese Anleitung hilft dir, den UT2003 Dedicated Server auf einem Linux-System ko
 - Einige Grundkenntnisse im Umgang mit der Konsole
 - Die Original-Dateien aus Unreal Tournament 2003 (z. B. von DVD, GOG-Version oder Archiv)
 - Das ausführbare Linux-Binary: `ucc-bin`
+- 32-Bit-Kompatibilitätspakete installieren, da UT2003 32-Bit ist:
+
+sudo apt-get update
+sudo apt-get install libc6:i386 libstdc++5:i386
 
 ---
 
 ## 2. 📥 Repository klonen
 
-Lade dieses Setup-Repository herunter:
+Lade das Setup-Repository herunter und wechsle in das Verzeichnis:
 
-git clone https://github.com/dibbi/ut2003-server cd ut2003-server
-
+git clone https://github.com/dibbi/ut2003-server
+cd ut2003-server
 
 ---
 
@@ -47,12 +51,8 @@ chmod +x scripts/start_server.sh
 
 Nutze die kommentierte Beispielkonfiguration als Grundlage:
 
-cp config/UT2003.example.ini UT2003.ini
-
-
-Öffne die Datei:
-
-nano UT2003.ini
+cp config/UT2003.example.ini config/UT2003.ini
+nano config/UT2003.ini
 
 
 Ändere darin z. B.:
@@ -89,6 +89,8 @@ Standard-Ports:
 Prüfe mit deinen Tools (z. B. `nmap`, `ss`, `netstat`) oder vom Spielclient aus, ob der Server erreichbar ist. Eventuell musst du in deiner Firewall die Ports freigeben:
 
 sudo ufw allow 7777/udp
+sudo ufw allow 7787/udp
+sudo ufw allow 8080/tcp
 
 
 ---
@@ -97,10 +99,9 @@ sudo ufw allow 7777/udp
 
 Bearbeite in `UT2003.ini`:
 
-UWeb.WebServer
-bEnabled=True Listen
-Port=8080
-
+[UWeb.WebServer]
+bEnabled=True
+ListenPort=8080
 
 Greife dann per Browser auf `http://<Server-IP>:8080` zu (ggf. nur im LAN erreichbar).
 
