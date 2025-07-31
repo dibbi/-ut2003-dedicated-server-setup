@@ -96,11 +96,11 @@ chmod +x ucc-bin
 
 ## ▶️ Server starten
 
-Das Skript findest du unter `scripts/start_server.sh`. Es startet einen einfachen Deathmatch-Server mit Standardmap.
+Das Skript findest du unter `scripts/start-ut2003.sh`. Es startet einen einfachen Deathmatch-Server mit Standardmap.
 
 ### Start:
 
-chmod +x scripts/start_server.sh ./scripts/start_server.sh
+chmod +x scripts/start-ut2003.sh ./scripts/start-ut2003.sh
 
 
 Das Skript ruft `ucc-bin server` mit einer Testmap und der Konfigurationsdatei `UT2003.ini` auf. Du kannst es jederzeit im Texteditor anpassen.
@@ -139,7 +139,7 @@ Die Datei enthält ausführliche Kommentare zur Orientierung. Sie sorgt dafür, 
 
 ## 📁 Projektstruktur
 
-├── README.md                     # Diese Anleitung ├── scripts/ │   └── start_server.sh           # Startskript für Linux ├── config/ │   └── UT2003.example.ini        # Beispiel-Konfigurationsdatei mit Kommentaren
+├── README.md                     # Diese Anleitung ├── scripts/ │   └── start-ut2003.sh           # Startskript für Linux ├── config/ │   └── UT2003.example.ini        # Beispiel-Konfigurationsdatei mit Kommentaren
 
 
 ---
