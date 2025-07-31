@@ -70,7 +70,7 @@ nano UT2003.ini
 
 Führe nun das Startskript aus:
 
-./scripts/start_server.sh
+./scripts/start-ut2003.sh
 
 
 
