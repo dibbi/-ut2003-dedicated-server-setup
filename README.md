@@ -173,4 +173,14 @@ Du kannst gerne Issues erstellen oder Pull Requests senden, z. B. für:
 
 ---
 
+---
+
+## ❓ Hilfe & FAQ
+
+Antworten auf häufige Fragen rund um den UT2003 Dedicated Server findest du in der separaten FAQ-Datei:
+
+📄 [FAQ.md](FAQ.md)
+
+
+
 **Have fun and frag on!**
